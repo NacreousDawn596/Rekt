@@ -103,7 +103,7 @@ document.getElementById("b").innerHTML = 8 * n + "%"; n += 1;
 document.getElementById('b').innerHTML = '<button id="launch">Launch</button>'
 
 const load = async () => {
-    await sleep(13000)
+    await sleep(13166)
     const represent = async (data, repl = { '': '' }) => {
         for (const element of Object.keys(data)) {
             let p = element;
@@ -111,7 +111,7 @@ const load = async () => {
                 p = p.replace(e, repl[e]);
             });
             console.log(`${p}: ${data[element]}`);
-            await sleep(300);
+            await sleep(500);
             document.getElementById("rekt").innerHTML += `${p}: ${data[element]} <br/>`;
         }
     };
