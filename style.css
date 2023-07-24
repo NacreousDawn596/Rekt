@@ -29,3 +29,19 @@ section {
     z-index: 2000;
     text-align: center;
 }
+
+div {
+    z-index: 2001;
+    background-color: black;
+    color: #F5F5F7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div > button {
+    width: 12vw;
+    height: 6vh;
+    background-color: #F5F5F7;
+    color: black;
+}

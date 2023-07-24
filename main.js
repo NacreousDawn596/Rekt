@@ -1,6 +1,7 @@
 import BrowserDetector from 'https://cdn.jsdelivr.net/npm/browser-dtector/browser-dtector.esm.js';
 
-document.getElementById("myVideo").play()
+var n = 0;
+document.getElementById("b").innerHTML = 8 * n + "%"; n += 1;
 
 const detector = new BrowserDetector(window.navigator.userAgent);
 
@@ -44,9 +45,15 @@ const represent = async (data, repl = { '': '' }) => {
     });
 }
 
+document.getElementById("b").innerHTML = 8 * n + "%"; n += 1;
+
 const data = filterTruthyValues(detector.parseUserAgent())
 
+document.getElementById("b").innerHTML = 8 * n + "%"; n += 1;
+
 const basic = await (await fetch('https://wtfismyip.com/json')).json();
+
+document.getElementById("b").innerHTML = 8 * n + "%"; n += 1;
 
 const systemInfo = {
     'System Languages': navigator.languages.join(', '),
@@ -54,28 +61,46 @@ const systemInfo = {
     'Screen Height': `${screen.height}px`,
 };
 
+document.getElementById("b").innerHTML = 8 * n + "%"; n += 1;
+
 if (screen.width !== window.width || screen.height !== window.height) {
     systemInfo['Window Width'] = `${window.outerWidth}px`;
     systemInfo['Window Height'] = `${window.outerHeight}px`;
 }
 
+document.getElementById("b").innerHTML = 8 * n + "%"; n += 1;
+
 systemInfo['Display Pixel Depth'] = screen.pixelDepth;
+
+document.getElementById("b").innerHTML = 8 * n + "%"; n += 1;
 
 if (typeof screen.orientation !== 'undefined') {
     systemInfo['Screen Orientation'] = screen.orientation.type.split('-')[0];
     systemInfo['Screen Rotation'] = `${screen.orientation.angle} degrees`;
 }
 
+document.getElementById("b").innerHTML = 8 * n + "%"; n += 1;
+
 systemInfo['CPU Threads'] = navigator.hardwareConcurrency;
+
+document.getElementById("b").innerHTML = 8 * n + "%"; n += 1;
 
 systemInfo['Available Browser Memory'] = typeof window.performance.memory !== 'undefined' ?
     `${Math.round(window.performance.memory.jsHeapSizeLimit / 1024 / 1024)} MB` : null;
 
+document.getElementById("b").innerHTML = 8 * n + "%"; n += 1;
+
 systemInfo['Total RAM'] = navigator.deviceMemory * 1024 + "Mb";
+
+document.getElementById("b").innerHTML = 8 * n + "%"; n += 1;
 
 const canvas = document.createElement('canvas');
 systemInfo['Gpu Vendor'] = (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')).getParameter((canvas.getContext('webgl') || canvas.getContext('experimental-webgl')).getExtension('WEBGL_debug_renderer_info').UNMASKED_VENDOR_WEBGL);
 systemInfo['Gpu Info'] = (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')).getParameter((canvas.getContext('webgl') || canvas.getContext('experimental-webgl')).getExtension('WEBGL_debug_renderer_info').UNMASKED_RENDERER_WEBGL);
+
+document.getElementById("b").innerHTML = 8 * n + "%"; n += 1;
+
+document.getElementById('b').innerHTML = '<button id="launch">Launch</button>'
 
 const load = async () => {
     await sleep(13000)
@@ -94,4 +119,8 @@ const load = async () => {
     await represent(sumDicts([basic, data, systemInfo]), { "YourFucking": "", "is": "Using ", "name": "Browser", "version": "Browser Version", "shortVersion": "Short Browser Version" })
 }
 
-await load()
+document.getElementById("launch").addEventListener("click", async (eeee) => {
+    document.getElementById("b").style.display = "none"
+    document.getElementById("myVideo").play()
+    await load()
+})
