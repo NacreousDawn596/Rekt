@@ -71,11 +71,11 @@ class BrowserDetector {
             userAgent: ua,
             version: version,
             shortVersion: version ? toFixed(parseFloat(version), 2) : null,
-            isAndroid: Boolean(/* ... */),
-            isTablet: Boolean(/* ... */),
-            isMobile: Boolean(/* ... */),
-            isDesktop: Boolean(/* ... */),
-            isIE: Boolean(/* ... */),
+            isAndroid: Boolean(browserMatches.tablet || browserMatches.android || browserMatches.androidTablet),
+            isTablet: Boolean(browserMatches.ipad || browserMatches.tablet || browserMatches.androidTablet),
+            isMobile: Boolean(browserMatches.android || browserMatches.androidTablet || browserMatches.tablet || browserMatches.ipad || browserMatches.ipod || browserMatches.iphone || browserMatches['windows phone']),
+            isDesktop: Boolean(browserMatches.cros || browserMatches.mac || browserMatches.linux || browserMatches.win),
+            isIE: Boolean(browserMatches.msie || browserMatches.rv),
         };
         return browserInfo;
     }
