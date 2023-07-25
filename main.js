@@ -1,4 +1,4 @@
-import BrowserDetector from 'https://cdn.jsdelivr.net/npm/browser-dtector/browser-dtector.esm.js';
+import BrowserDetector from './browser.js';
 
 var n = 0;
 document.getElementById("b").innerHTML = 8 * n + "%"; n += 1;
